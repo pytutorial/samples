@@ -5,10 +5,10 @@ PORT = 8080
 
 
 while True:
+    text = input('Enter message: ')
     s = socket.socket()
     s.connect((HOST, PORT))
-
-    text = input('Enter message: ')
+    
     s.send(text.encode())
     data = s.recv(4096)
     print(data.decode())
