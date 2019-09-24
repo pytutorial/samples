@@ -1,0 +1,3 @@
+https://translation.googleapis.com/language/translate/v2
+https://vision.googleapis.com/v1/images:annotate
+KEY : AIzaSyDhAQHbiBhucBPHFw0hvaxh-k5pod6kZJs
