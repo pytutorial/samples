@@ -1,4 +1,4 @@
-''' chương trình để từ một bức ảnh, đọc lấy nội dung văn bản trong ảnh'''
+''' chương trình dịch đoạn văn bản giữa 2 ngôn ngữ'''
 
 import requests, json, base64  
 
