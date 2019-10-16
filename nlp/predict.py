@@ -16,10 +16,10 @@ trong nhiệm kỳ 2021 – 2026, Chính phủ đề xuất bổ sung 2 thẩm q
 Chủ tịch UBND quận, một trong số đó là quyền cách chức người đứng đầu 
 cơ quan hành chính cấp dưới.'''
     
-words = tokenize(text)
+tokens = tokenize(text)
 x = [0] * n_word
 
-for word in words:
+for word in tokens:
     index = word_indexes.get(word, -1)
     if index >= 0:
         x[index] = 1

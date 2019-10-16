@@ -6,26 +6,22 @@ Xăng RON95-III giảm 271 đồng/lít, dầu mazut giảm mạnh nhất với 
 
 text_words = set(tokenize(text))
 
-topics = ['xahoi' , 'kinhdoanh', 'thethao', 'vanhoa']
-docs = []
-
 with open('docs.json') as f:
     docs = json.load(f)
+
+def find_similarity(words1, words2):
+    intersect_words = words1.intersection(words2)
+    union_words = words1.union(words2)
+    return len(intersect_words)/len(union_words)
 
 scores = []
 
 for i, doc in enumerate(docs):
     doc_words = set(doc['words'])
-    intersect_words = doc_words.intersection(text_words)
-    union_words = doc_words.union(text_words)
-    score = len(intersect_words)/len(union_words)
+    score = find_similarity(doc_words, text_words)
     scores.append((score, i))
     
 scores = sorted(scores, reverse=True)
 
 for _, i in scores[:5]:
     print(docs[i]['sentence'])
-        
-        
-        
-        

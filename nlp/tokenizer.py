@@ -11,10 +11,12 @@ def normalize(s):
     return ''.join(lst)
 
 def tokenize(sentence):
-    sentence = sentence.lower()
-    words = ViTokenizer.tokenize(sentence).split()
-    words = [word for word in words if normalize(word).isalpha()]
-    return words
+    sentence = ViTokenizer.tokenize(sentence)
+    tokens = []
+    for word in sentence.split():        
+        if word.replace('_', '').isalpha() and len(word) > 1:
+            tokens.append(word.lower())
+    return tokens
 
 if __name__ == '__main__':
     docs = []
