@@ -1,0 +1,10 @@
+<p><a href='/'>&larr; Quay lại</a><p>
+
+<span style='color:red'>{{ err }} </span>
+
+<form method='POST'>
+    {% csrf_token %}
+    <p>Mã học sinh : <input required name='studentNo' value='{{ student.studentNo }}'></p>
+    <p>Họ và tên : <input required name='studentName' value='{{ student.studentName }}'></p>
+    <input type='submit' value='Lưu lại'>
+</form>

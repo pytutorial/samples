@@ -16,8 +16,8 @@ def index():
     students = Student.query.all()
     return render_template('index.html', students=students)
     
-@app.route('/add_student', methods=['GET', 'POST'])
-def addStudent():
+@app.route('/create_student', methods=['GET', 'POST'])
+def createStudent():
     st = Student()
     st.studentName = st.studentNo = ''    
     err = ''
@@ -34,8 +34,8 @@ def addStudent():
         
     return render_template('student_form.html', student=st, err=err)
     
-@app.route('/edit_student/<int:id>', methods=['GET', 'POST'])
-def editStudent(id):
+@app.route('/update_student/<int:id>', methods=['GET', 'POST'])
+def updateStudent(id):
     st = Student.query.get(id)
     err = ''
     

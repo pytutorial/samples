@@ -8,15 +8,15 @@
         </tr>
         {% for st in students %}
             <tr>
-                <td>{{ loop.index }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ st.studentNo }}</td>
                 <td>{{ st.studentName }}</td>
                 <td>
-                    <a href='/update_student/{{st.id}}'>Chỉnh sửa</a>
-                    <a href='/delete_student/{{st.id}}'>Xóa</a>                    
+                    <a href='{% url "updateStudent" st.id %}'>Chỉnh sửa</a>
+                    <a href='{% url "deleteStudent" st.id %}'>Xóa</a>                    
                 </td>
             </tr>
         {% endfor %}
     </table>
 {% endif %}
-<a href='/create_student'>Thêm học sinh</a>
+<a href='{% url "createStudent"  %}''>Thêm học sinh</a>
