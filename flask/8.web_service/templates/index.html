@@ -1,0 +1,11 @@
+<div id="content">
+</div>
+<button onclick="getStudents()">Get students</button>
+<script>
+async function getStudents() {
+   var response = await fetch('/get_students');
+   var students = await response.json();   
+   var html = students.map(st => st.name).join("<br>");   
+   document.getElementById('content').innerHTML = html;
+}
+</script>
