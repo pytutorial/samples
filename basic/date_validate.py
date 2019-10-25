@@ -1,6 +1,6 @@
 """
 Chương trình kiểm tra tính hợp lệ của một ngày
- - Đầu vào : Ngày , tháng, năm
+ - Đầu vào : Ngày , tháng, năm (2000-2099)
  - Đầu ra : Có tồn tại ngày đó không
 """
 
