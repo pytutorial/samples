@@ -4,27 +4,19 @@ Chương trình kiểm tra tính hợp lệ của một ngày
  - Đầu ra : Có tồn tại ngày đó không
 """
 
-date = int(input('Ngày : '))
-month = int(input('Tháng : '))
-year = int(input('Năm : '))
+D = int(input('Ngày: '))
+M = int(input('Tháng: '))
+Y = int(input('Năm (2000-2099): '))
 
-if date <= 0 or month <= 0 or year <= 0:
-    print('Không tồn tại ngày này')
-    exit()
+day_in_month = 30
 
-if month > 12:
-    print('Không tồn tại ngày này')
-    exit()
+if M == 2:
+    day_in_month = 29 if (Y%4 == 0) else 28
+if (M <=7 and M%2==1) or (M >=8 and M%2==0):
+    day_in_month = 31
 
-if month == 2:
-    day_in_month = 29 if (year%4 == 0) else 28
+if 1<=D<=day_in_month and 1<=M<=12:
+    print('Ngày hợp lệ')
 else:
-    x = month if (month < 8) else month-7
-    day_in_month = 30 + x % 2
-     
-if date <= day_in_month:
-    print('Tồn tại ngày này')
-else:
-    print('Không tồn tại ngày này')
-
+    print('Ngày không hợp lệ')
 
