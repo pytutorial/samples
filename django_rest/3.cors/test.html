@@ -1,0 +1,16 @@
+<div id="app"></div>
+<br>
+<button onclick="getProducts()">Get Products</button>
+
+<script>
+    async function getProducts() {
+        var response = await fetch("http://localhost:8000/products");
+        var products = await response.json()
+        var html = "";
+        for(var i = 0; i < products.length; i++ ){
+            html += products[i].name + "<br>";
+        }
+        document.getElementById("app").innerHTML = html;        
+    }
+</script>
+
