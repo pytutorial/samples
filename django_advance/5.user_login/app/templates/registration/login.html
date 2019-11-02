@@ -1,0 +1,10 @@
+<h2>Đăng nhập</h2>
+<form method="post">
+  {% csrf_token %}
+  <table>
+    {{ form }}
+  </table>
+  <br>
+  <input type="submit" value='Đăng nhập'>
+  <a href="/accounts/signup">Đăng ký</a>
+</form>

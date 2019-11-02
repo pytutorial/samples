@@ -1,0 +1,41 @@
+<form>
+    <input name='keyword' value='{{ keyword }}' placeholder="Nhập tên/mã sản phẩm tìm kiếm">
+</form>
+
+<table border="1">
+    <tr>
+        <td>STT</td>
+        <td>Mã</td>
+        <td>Tên</td>
+        <td>Giá</td>
+    </tr>
+    {% for p in cur_items %}
+    <tr>
+        <td>{{ forloop.counter|add:offset }}</td>
+        <td>{{ p.code }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+    </tr>
+    {% endfor %}    
+</table>
+
+{% if num_pages > 1%}
+    <a class="page-link" href="?keyword={{keyword}}&page=1">&laquo;</a>
+        
+    {% if page > 1 %}                
+        <a class="page-link" href="?keyword={{keyword}}&page={{ page|add:-1 }}">&lsaquo;</a>
+    {% else %}
+        <a class="page-link">&lsaquo;</a>
+    {% endif %}
+
+    {% if page < num_pages %}            
+        <a class="page-link" href="?keyword={{keyword}}&page={{ page|add:1 }}">&rsaquo;</a>
+    {% else %}
+        <a class="page-link">&rsaquo;</a>
+    {% endif %}
+
+    <a class="page-link" href="?keyword={{keyword}}&page={{ num_pages }}">&raquo;</a>
+
+    <br>
+    <span>Page {{ page }} of {{ num_pages }} (Total : {{total}} records)</span>
+{% endif %}

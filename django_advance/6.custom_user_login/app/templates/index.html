@@ -1,0 +1,8 @@
+{% if user.is_authenticated %}
+  Xin chào {{ user.username }}
+  <a href="{% url 'logout' %}">Đăng xuất</a>
+
+{% else %}
+  <br>
+  <a href="{% url 'login' %}">Đăng nhập</a> / <a href="/accounts/signup">Đăng ký</a>
+{% endif %}

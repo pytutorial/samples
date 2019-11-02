@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+  {% with page=2 %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block content %}
+  <h1>Page 2 content</h1>
+{% endblock %}

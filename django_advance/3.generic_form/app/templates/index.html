@@ -1,0 +1,23 @@
+<table border="1">
+    <tr>
+        <td>STT</td>
+        <td>Mã</td>
+        <td>Tên</td>
+        <td>Giá</td>
+        <td></td>
+    </tr>
+    {% for p in products %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ p.code }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+        <td>
+            <a href='{% url "product-update" p.id %}'>Chỉnh sửa</a>
+            <a href='{% url "product-delete" p.id %}'>Xóa</a>
+        </td>
+    </tr>
+    {% endfor %}    
+</table>
+
+<a href='{% url "product-create" %}'>Thêm sản phẩm</a>

@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<body>
+  {%block navbar %}
+    <p>
+      <a {%if page != 1 %} href='{% url "page-1" %}' {%endif%}>Page 1</a>
+      <a {%if page != 2 %} href='{% url "page-2" %}' {%endif%}>Page 2</a>
+    </p>
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+</body>

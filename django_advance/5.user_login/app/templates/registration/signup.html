@@ -1,0 +1,19 @@
+<h2>Đăng ký</h2>
+<form method="POST" novalidate>
+  {% csrf_token %}
+  <table>
+    <tr>
+      <td>Tên đăng nhập</td>
+      <td><input name='username'> {{ form.username.errors }}</td>
+    </tr>
+    <tr>
+      <td>Mật khẩu</td>
+      <td><input type='password' name='password1'> {{ form.password1.errors }}</td>
+    </tr>
+    <tr>
+      <td>Xác nhận mật khẩu</td>
+      <td><input type='password' name='password2'> {{ form.password2.errors }}</td>
+    </tr>
+  </table>
+  <input type="submit" value='Đăng ký'>
+</form>
