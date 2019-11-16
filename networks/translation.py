@@ -2,7 +2,7 @@
 
 import requests, json, base64  
 
-url = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyDhAQHbiBhucBPHFw0hvaxh-k5pod6kZJs'
+url = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyBSut2ax6ct7NAMGELpAZ_bRxNVuDS-ZRU'
 
 data = {
         'q': '''What's the weather like?''',

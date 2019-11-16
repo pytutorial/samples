@@ -2,7 +2,7 @@
 
 import requests, json, base64  
 
-url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDhAQHbiBhucBPHFw0hvaxh-k5pod6kZJs'
+url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBSut2ax6ct7NAMGELpAZ_bRxNVuDS-ZRU'
 
 def docVanBan(file):
     with open(file, 'rb') as f:
