@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set page = 1 %}
+
+{% block content %}
+<div class="container mt-3" id="app">
+  <template>
+    <table class="table table-bordered" v-if="students">
+        <tr class="text-center">
+            <th>STT</th>
+            <th>Mã học sinh</th>
+            <th>Họ và tên</th>
+            <th>Chức năng</th>
+        </tr>
+        <tr class="text-center" v-for="(st, i) in students">
+            <td>{{ i + 1 }}</td>
+            <td>{{ st.studentNo }}</td>
+            <td>{{ st.studentName }}</td>
+            <td></td>
+        </tr>
+    </table>
+  </template>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      students: null
+    },
+    created: async function() {
+      var resp = await fetch("/get_all_students");
+      this.students = await resp.json();
+    }
+  })
+</script>
+{% endblock %}
