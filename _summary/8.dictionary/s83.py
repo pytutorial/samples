@@ -1,6 +1,6 @@
 # Cho một văn bản, in ra các từ trong văn bản kèm số lần xuất hiện của chúng theo thứ tự số lượng giảm dần
 
-st = "một năm có bă trăm sáu mươi lăm hoặc ba trăm sáu mươi sáu ngày"
+st = "một năm có ba trăm sáu mươi lăm hoặc ba trăm sáu mươi sáu ngày"
 
 counts = {}
 

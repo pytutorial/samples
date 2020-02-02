@@ -1,4 +1,4 @@
-# Cho 2 văn bản. Viết hàm tính số từ chung nhau của 2 văn bản
+#  Cho 2 văn bản. Viết hàm tìm danh sách từ chung nhau của 2 văn bản
 
 def get_word_set(st):
     return set(st.split())

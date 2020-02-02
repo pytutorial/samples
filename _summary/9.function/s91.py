@@ -6,4 +6,4 @@ def getsum(lst):
         S += x
     return S
     
-print(sum([1, 3, 5, 7, 10]))
+print(getsum([1, 3, 5, 7, 10]))
