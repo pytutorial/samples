@@ -8,10 +8,7 @@ import numpy as np
 from keras.utils import to_categorical
 from config import *
 
-img_size = 224
 train_factor = 0.7
-
-chunk_size = 4096
 num_classes = len(labels)
 
 def saveData(outdir, tag, data):

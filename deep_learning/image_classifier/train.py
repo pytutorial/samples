@@ -7,12 +7,9 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.optimizers import SGD
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.applications.densenet import DenseNet169, preprocess_input
-from config import labels
+from config import *
 
 num_classes = len(labels)
-batch_size = 32
-img_size = 224
-chunk_size = 4096
 
 class DataGenerator:
     def __init__(self, data_dir, tag, batch_size):
