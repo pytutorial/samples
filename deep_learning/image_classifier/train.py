@@ -41,6 +41,7 @@ class DataGenerator:
         self.X = self.X[indexes]
         self.Y = self.Y[indexes]
 
+
     def next_batch(self):
         Xb = np.zeros((batch_size, img_size, img_size, 3), dtype=np.float32)
         Yb = np.zeros((batch_size, num_classes), dtype=np.float32)
@@ -56,6 +57,7 @@ class DataGenerator:
                 self.current_index += 1
 
             yield Xb, Yb
+
 
 def createModel(lr=1e-3):
     model = DenseNet169(include_top=False)
