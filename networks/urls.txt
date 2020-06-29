@@ -2,3 +2,5 @@ http://api.openweathermap.org/data/2.5/weather?id=1581129&units=metric&appid=d64
 https://translation.googleapis.com/language/translate/v2?key=AIzaSyBSut2ax6ct7NAMGELpAZ_bRxNVuDS-ZRU
 https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBSut2ax6ct7NAMGELpAZ_bRxNVuDS-ZRU
 http://api.openweathermap.org/data/2.5/forecast?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9&cnt=8
+
+AIzaSyBN8Sfvmd3ozr_asRMGe7P8qmaxmJ1PCYE
