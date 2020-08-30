@@ -5,4 +5,5 @@ http://api.openweathermap.org/data/2.5/forecast?id=1581129&units=metric&appid=d6
 
 https://translation.googleapis.com/language/translate/v2?key=AIzaSyBN8Sfvmd3ozr_asRMGe7P8qmaxmJ1PCYE&source=vi&target=en&q=H%C3%B4m+nay+l%C3%A0+ch%E1%BB%A7+nh%E1%BA%ADt
 
+
 AIzaSyBN8Sfvmd3ozr_asRMGe7P8qmaxmJ1PCYE
