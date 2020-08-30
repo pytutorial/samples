@@ -1,4 +1,0 @@
-http://api.openweathermap.org/data/2.5/weather?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9
-https://translation.googleapis.com/language/translate/v2
-https://vision.googleapis.com/v1/images:annotate
-KEY : AIzaSyDhAQHbiBhucBPHFw0hvaxh-k5pod6kZJs
