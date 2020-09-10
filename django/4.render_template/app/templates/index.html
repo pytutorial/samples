@@ -1,18 +1,9 @@
-<table border="1">
-    <tr>
-        <th>STT</th>
-        <th>Mã học sinh</th>
-        <th>Họ và tên</th>
-    </tr>
-    {% for st in students %}
-      {% if forloop.counter|divisibleby:2 %}    
-        <tr style="background-color:#DDD">
-      {% else %}
-        <tr style="background-color:white">
-      {% endif %}      
-            <td>{{ forloop.counter }}</td>
-            <td>{{ st.studentNo }}</td>
-            <td>{{ st.name }}</td>
-        </tr>
-    {% endfor %}
-</table>
+<form method='POST' action='/hello'> 
+  {%csrf_token%}
+  <p>Name: <input name='name'></p>
+  <p>Gender: 
+  	<input name='gender' type='radio' value='M'> Male
+  	<input name='gender' type='radio' value='F'> Female
+  </p>
+  <input type='submit'>     
+</form>
