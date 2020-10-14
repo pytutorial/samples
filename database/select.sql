@@ -1,4 +1,5 @@
 SELECT * FROM student;
+SELECT COUNT(*) student;
 SELECT * FROM student LIMIT 1000;
 SELECT * FROM student LIMIT 1,10;
 SELECT * FROM student WHERE student_no='1001';
