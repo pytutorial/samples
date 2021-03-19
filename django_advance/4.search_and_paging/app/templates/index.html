@@ -1,5 +1,16 @@
 <form>
-    <input name='keyword' value='{{ keyword }}' placeholder="Nhập tên/mã sản phẩm tìm kiếm">
+    <input name='keyword' value='{{ query_params.keyword }}' placeholder="Nhập tên/mã sản phẩm tìm kiếm">
+    <select name='categoryId'>
+        <option value="">---Chọn nhóm sản phẩm---</option>
+        {% for c in categories %}
+            <option value="{{c.id}}" {% if c.id|stringformat:"i" == query_params.categoryId %} selected {% endif %}>
+                {{c.name}}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit">
+        Tìm kiếm
+    </button>
 </form>
 
 <table border="1">
@@ -9,9 +20,14 @@
         <td>Tên</td>
         <td>Giá</td>
     </tr>
-    {% for p in cur_items %}
+    {% if not products %}
     <tr>
-        <td>{{ forloop.counter|add:offset }}</td>
+        <td colspan="4">Không tìm thấy sản phẩm nào</td>
+    </tr>
+    {% endif %}
+    {% for p in products %}
+    <tr>
+        <td>{{ forloop.counter|add:start }}</td>
         <td>{{ p.code }}</td>
         <td>{{ p.name }}</td>
         <td>{{ p.price }}</td>
@@ -20,22 +36,22 @@
 </table>
 
 {% if num_pages > 1%}
-    <a class="page-link" href="?keyword={{keyword}}&page=1">&laquo;</a>
+    <a class="page-link" href="{{searchUrl}}&page=1">&laquo;</a>
         
     {% if page > 1 %}                
-        <a class="page-link" href="?keyword={{keyword}}&page={{ page|add:-1 }}">&lsaquo;</a>
+        <a class="page-link" href="{{searchUrl}}&page={{ page|add:-1 }}">&lsaquo;</a>
     {% else %}
         <a class="page-link">&lsaquo;</a>
     {% endif %}
 
     {% if page < num_pages %}            
-        <a class="page-link" href="?keyword={{keyword}}&page={{ page|add:1 }}">&rsaquo;</a>
+        <a class="page-link" href="{{searchUrl}}&page={{ page|add:1 }}">&rsaquo;</a>
     {% else %}
         <a class="page-link">&rsaquo;</a>
     {% endif %}
 
-    <a class="page-link" href="?keyword={{keyword}}&page={{ num_pages }}">&raquo;</a>
+    <a class="page-link" href="{{searchUrl}}&page={{ num_pages }}">&raquo;</a>
 
     <br>
-    <span>Page {{ page }} of {{ num_pages }} (Total : {{total}} records)</span>
+    <span>Hiển thị {{ start|add:1 }} - {{ end }} trên tổng số {{total}} bản ghi</span>
 {% endif %}

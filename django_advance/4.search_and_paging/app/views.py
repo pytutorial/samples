@@ -1,25 +1,47 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category
+import math
+
+def createSearchUrl(keyword, categoryId):
+    categoryId = categoryId or ''
+    return f'?keyword={keyword}&categoryId={categoryId}'
 
 def index(request):
     pageSize = 5
-    keyword = request.GET.get('keyword', '')
-    page = int(request.GET.get('page', 1))
-    products = Product.objects.filter(Q(name__contains=keyword) | Q(code__contains=keyword))
+    query_params = request.GET
+    keyword = query_params.get('keyword', '')
+    categoryId = query_params.get('categoryId')
 
-    paginator = Paginator(products, pageSize)    
-    cur_items = paginator.get_page(page)    
-    offset = (page - 1) * pageSize
+    products = Product.objects.all()
+    
+    if keyword:
+        products = products.filter(Q(name__contains=keyword) | Q(code__contains=keyword))
+
+    if categoryId:
+        products = products.filter(category__id=categoryId)
+
+    total = len(products)
+    page = query_params.get('page', '')
+    page = int(page) if page.isdigit() else 1
+    start = (page-1) * pageSize    
+    end = min(total, start+pageSize)
+    num_pages = math.ceil(total/pageSize)
+    searchUrl = createSearchUrl(keyword, categoryId)
+    
+    products = products[start:end]
 
     context = {
-        'keyword': keyword,
-        'cur_items': cur_items,
+        'categories': Category.objects.all(),
+        'query_params': query_params,
+        'products': products,
+        'num_pages': num_pages,
         'page': page,        
-        'offset': offset,
-        'num_pages': paginator.num_pages,
-        'total': paginator.count
+        'start': start,
+        'end': end,
+        'total': total,
+        'searchUrl': searchUrl
     }
 
     return render(request, 'index.html', context)
