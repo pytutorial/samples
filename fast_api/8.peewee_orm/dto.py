@@ -33,9 +33,9 @@ class ProductDto(BaseModel):
 
     @validator('code')
     def validate_code(cls, value, values, **kwargs):
-        if Category.select().where(
-            (Category.code == value) &
-            (Category.id != values.get('id'))
+        if Product.select().where(
+            (Product.code == value) &
+            (Product.id != values.get('id'))
         ).count() > 0:
             raise ValueError(f'Product with code "{value}" already exists')
         
