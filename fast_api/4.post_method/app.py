@@ -3,12 +3,14 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
+# Post with json data
 @app.post('/hello1')
 async def hello1(request: Request):
     data = await request.json()
     name = data.get('name', '')
     return {'message': 'Hello ' + name}
 
+# Post with form data
 @app.post('/hello2')
 async def hello2(request: Request):
     form = await request.form()
