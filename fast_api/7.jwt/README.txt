@@ -6,12 +6,11 @@ Install packages:
 Start app:
     uvicorn --reload app:app
 
-Get token:
-    POST:
+Test API: Go to http://127.0.0.1:8000/docs
+    Get token:
         url: http://127.0.0.1:8000/token
         data (form-data): username=admin, password=admin
 
-Test API:
-    GET:
+    Hello:
         url: http://127.0.0.1:8000/hello
         Authorization: Bearer, token=<token from above step>

@@ -1,5 +1,8 @@
+Install packages:
+    pip install peewee
+
 Start app:
     uvicorn --reload app:app
 
-Test API:
+Test APIs:
     Go to http://127.0.0.1:8000/docs
